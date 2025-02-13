@@ -10,7 +10,7 @@ and can be installed in two ways:
 ## Environment requirements
 To ensure proper functionality, the following environment is required:
 
-- **OS: Linux x86_64**,
+- **OS/ARCH: linux/amd64**,
 - **Docker** (latest stable version).
 
 **For custom builds** (additionally):
