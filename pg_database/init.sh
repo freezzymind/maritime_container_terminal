@@ -121,3 +121,4 @@ SECURE_PATH="/var/lib/postgresql/data/secure/term_user_password.txt"
 echo "$TERM_USER_PASSWORD" > "$SECURE_PATH"
 chmod 644 "$SECURE_PATH"
 echo "Password for term_user saved in $SECURE_PATH."
+

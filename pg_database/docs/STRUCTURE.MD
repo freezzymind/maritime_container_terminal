@@ -124,3 +124,4 @@ Stores information about ship departures from the port.
   - `'busy'` – The berth is occupied by a ship.  
   - `'reserved'` – The berth is booked for an upcoming arrival.  
 - **Description:** Indicates the availability of the berth.
+

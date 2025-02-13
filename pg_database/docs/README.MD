@@ -7,7 +7,6 @@ and can be installed in two ways:
 1. **Using a pre-built image from Docker Hub** (recommended).
 2. **Building a custom image from the provided repository files**.
 
-
 ## Environment requirements
 To ensure proper functionality, the following environment is required:
 
