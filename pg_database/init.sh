@@ -21,7 +21,7 @@ gross_tonnage INTEGER NOT NULL CHECK (gross_tonnage > 1000 AND gross_tonnage < 9
 length NUMERIC(10, 2) NOT NULL,
 width NUMERIC(10, 2) NOT NULL,
 draft NUMERIC(10, 2) NOT NULL,
-location VARCHAR(100));
+location VARCHAR(10) NOT NULL CHECK (location IN ('arrived', 'departed', 'anchored', 'docked'));
 
 CREATE UNIQUE INDEX idx_ships_imo ON ships(imo);
 CREATE INDEX idx_ships_location ON ships(location); 
