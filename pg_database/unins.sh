@@ -1,6 +1,6 @@
 #! /bin/bash
 
-docker rm -f sea_term.pgdb_0.1
-docker rmi sea_term.pgdb:0.1
-docker network rm sea_term.network
-docker volume rm sea_term_data
+docker rm -f maritime_terminal_db
+docker rmi maritime_term.database:latest
+docker network rm maritime_terminal.network
+docker volume rm maritime_term_data

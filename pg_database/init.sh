@@ -2,11 +2,11 @@
 
 # 1. Creating database
 TEMP_SQL_DB="/tmp/create_db.sql"
-echo "CREATE DATABASE sea_terminal;" > "$TEMP_SQL_DB"
+echo "CREATE DATABASE maritime_terminal;" > "$TEMP_SQL_DB"
 
 PGPASSWORD="$POSTGRES_PASSWORD" psql -U postgres -d postgres -f "$TEMP_SQL_DB"
 rm -f "$TEMP_SQL_DB"
-echo "Database 'sea_terminal' created successfully."
+echo "Database 'maritime_terminal' created successfully."
 
 
 # 2. Creating tables
@@ -51,7 +51,7 @@ imo CHAR(7) NOT NULL REFERENCES ships(imo) CHECK (imo ~ '^\d{7}$'),
 departure_time TIMESTAMP NOT NULL);
 EOT
 
-PGPASSWORD="$POSTGRES_PASSWORD" psql -U postgres -d sea_terminal -f "$TEMP_SQL_TABLES"
+PGPASSWORD="$POSTGRES_PASSWORD" psql -U postgres -d maritime_terminal -f "$TEMP_SQL_TABLES"
 rm -f "$TEMP_SQL_TABLES"
 echo "All tables created successfully."
 
@@ -105,12 +105,12 @@ fi
 TEMP_SQL_USER="/tmp/create_user.sql"
 cat <<EOT > "$TEMP_SQL_USER"
 CREATE USER term_user WITH ENCRYPTED PASSWORD '${TERM_USER_PASSWORD}';
-GRANT CONNECT ON DATABASE sea_terminal TO term_user;
+GRANT CONNECT ON DATABASE maritime_terminal TO term_user;
 GRANT USAGE ON SCHEMA public TO term_user;
 GRANT SELECT, INSERT, UPDATE ON ALL TABLES IN SCHEMA public TO term_user;
 EOT
 
-PGPASSWORD="$POSTGRES_PASSWORD" psql -U postgres -d sea_terminal -f "$TEMP_SQL_USER"
+PGPASSWORD="$POSTGRES_PASSWORD" psql -U postgres -d maritime_terminal -f "$TEMP_SQL_USER"
 rm -f "$TEMP_SQL_USER"
 echo "User 'term_user' created successfully."
 
