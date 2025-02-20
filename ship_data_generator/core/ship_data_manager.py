@@ -1,4 +1,4 @@
-from ship_data_generator import Automatically, Manually
+from data_engine import Automatically, Manually
 
 answer = input('выберите 1 если хотите ввести данные вручную или 2 если хотите автоматически сгенерировать данные.')
 
