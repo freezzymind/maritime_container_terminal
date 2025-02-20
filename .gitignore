@@ -1,1 +1,3 @@
+.venv/
+.idea/
 pg_database/docs/opt_advices.txt
