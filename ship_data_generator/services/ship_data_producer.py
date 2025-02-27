@@ -22,11 +22,8 @@ class ShipDataProducer:
         if err:
             self.retry_count[imo] = self.retry_count.get(imo, 0) + 1
             self.status.change_status(imo, err)
-            # print(f"Your ship data (IMO '{imo}') failed with error '{err}'. Retrying...")
             if self.retry_count[imo] > 2:
                 self.status.move_to_dead_storage(imo)
-                # print(f"Your ship data (IMO '{imo}') didn't send because '{err}' occurred 3 times.")
         else:
             self.status.change_status(imo, "Successfully sent to Kafka.")
             self.retry_count.pop(imo, None)
-            # print(f"Your ship data (IMO '{imo}') successfully sent to Kafka.")

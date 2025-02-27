@@ -14,29 +14,20 @@ class ShipDataStatus:
         if imo in self.storage:
             self.storage[imo]["status"] = current_status
 
-    def show_storage(self):
-        pass
-
-    def del_storage_obj(self):
-        pass
-
     def move_to_dead_storage(self, imo):
         self.dead_storage[imo] = self.storage[imo]
         self.storage.pop(imo, None)
 
-    def show_dead_storage(self):
-        pass
+    def del_storage_obj(self, imo):
+        return self.storage.pop(f'DELETED {imo}.', "Imo-number not found")
 
-    def del_dead_storage_obj(self):
-        pass
+    def del_dead_storage_obj(self, imo):
+        return self.dead_storage.pop(f'DELETED {imo}.', "Imo-number not found")
+
+    def clean_storage(self):
+        self.storage.clear()
 
     def clean_dead_storage(self):
-        pass
+        self.dead_storage.clear()
 
-#Принять запись о корабле с неизвестным статусом отправки
-#Менять статус в соответствии с новыми данными
-#В случае необходимости - показывать эти записи
-#При получении статуса о том что корабль записан в БД - удалять его
-#При трехкратном повторении одной и той же ошибки - переводить записи в другую таблицу
-#Сообщать продюсеру, чтобы больше не пытался отправлять
-#Сообщать менеджеру чтобы уведомлял юзера и предлагал попробовать снова или изучить проблему
+
